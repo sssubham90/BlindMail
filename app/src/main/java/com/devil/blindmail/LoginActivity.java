@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                         case 2:
                             Password.setText(result.get(0).toLowerCase().replace(" ",""));
                             status.setText("Confirm?");
-                            speak("Please Confirm the mail\n To : " + Email.getText().toString() + "\nSubject : " + Password.getText().toString() + "\nSpeak Yes to confirm");
+                            speak("Please Confirm the mail ID\n Email : " + Email.getText().toString() + "\nPassword : " + Password.getText().toString() + "\nSpeak Yes to confirm");
                             break;
                         case 3:
                             if(result.get(0).equals("yes"))
