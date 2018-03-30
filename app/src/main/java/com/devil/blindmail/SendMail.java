@@ -24,7 +24,6 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
 
     //Declaring Variables
     private Context context;
-    private Session session;
 
     //Information to send email
     private String email;
@@ -38,7 +37,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
 
 
     //Class Constructor
-    public SendMail(Context context, String email, String subject, String message){
+    SendMail(Context context, String email, String subject, String message){
         //Initializing variables
         this.context = context;
         sessionManager=new SessionManager(context);
@@ -87,7 +86,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
         props.put("mail.smtp.port", "465");
 
         //Creating a new session
-        session = Session.getDefaultInstance(props,
+        Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {

@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void exitFromApp()
     {
-        this.finishAffinity();
+        this.finishActivity(0);
     }
 
     @Override

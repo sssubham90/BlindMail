@@ -7,7 +7,7 @@ import android.content.SharedPreferences.Editor;
 
 import java.util.HashMap;
 
-public class SessionManager {
+class SessionManager {
     private SharedPreferences pref;
     private Editor editor;
     private Context _context;
@@ -15,12 +15,12 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
-    public SessionManager(Context context){
+    SessionManager(Context context){
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
      
-    public void createLoginSession(String email, String password){
+    void createLoginSession(String email, String password){
         editor = pref.edit();
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_EMAIL, email);
@@ -28,14 +28,7 @@ public class SessionManager {
         editor.apply();
     }
 
-    HashMap<String, String> getUserDetails(){
-        HashMap<String, String> user = new HashMap<>();
-        user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
-        user.put(KEY_PASSWORD, pref.getString(KEY_PASSWORD, null));
-        return user;
-    }
-
-    public void logoutUser(){
+    void logoutUser(){
         editor = pref.edit();
         editor.clear();
         editor.apply();
@@ -45,15 +38,15 @@ public class SessionManager {
         _context.startActivity(i);
     }
 
-    public String getEmail(){
+    String getEmail(){
         return pref.getString(KEY_EMAIL,null);
     }
 
-    public String getPasssword(){
+    String getPasssword(){
         return pref.getString(KEY_PASSWORD,null);
     }
 
-    public boolean isLoggedIn(){
+    boolean isLoggedIn(){
         return pref.getBoolean(IS_LOGIN, false);
     }
 }

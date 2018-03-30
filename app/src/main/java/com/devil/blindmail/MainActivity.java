@@ -184,8 +184,6 @@ public class MainActivity extends AppCompatActivity{
                 if(result.get(0).equals("yes"))
                 {
                     sessionManager.logoutUser();
-                    startActivity(new Intent(this,LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                    finish();
                 }
             }
         }
